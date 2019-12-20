@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   var moviesList = sequelize.define("moviesList", {
     // text: DataTypes.STRING,
     // description: DataTypes.TEXT
-    imbdid: {
+    imdbid: {
         type: DataTypes.STRING,
         primaryKey: true
     },
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     plot: DataTypes.STRING,
     language: DataTypes.STRING,
     poster: DataTypes.STRING,
-    
+    boatsValue: DataTypes.INTEGER
 });
   return moviesList;
 };
