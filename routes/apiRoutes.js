@@ -1,4 +1,6 @@
 var db = require("../models");
+var helperFunctions = require("../routes/helperFunctions.js");
+var findMovie = helperFunctions.findMovie;
 
 module.exports = function(app) {
   // Get all examples
@@ -21,4 +23,16 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  // Add new movie to db
+  app.post("/api/movie/add/:imdbId", function(req, res){
+    imdbId = req.params.imdbId;
+    console.log("server" + imdbId)
+    findMovie(imdbId, function(results){
+      console.log(results);
+      res.send("Movie Added to db")
+    });
+
+  });
+
 };
