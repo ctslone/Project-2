@@ -29,8 +29,25 @@ module.exports = function(app) {
     imdbId = req.params.imdbId;
     console.log("server" + imdbId)
     findMovie(imdbId, function(results){
-      console.log(results);
-      res.send("Movie Added to db")
+    console.log(results);
+
+    newMovie = { 
+    imdbid: results.imdbID, 
+    title: results.Title,
+    year: results.Year,
+    rated: results.Rated,
+    runtime: results.Runtime,
+    genre: results.Genre,
+    director: results.Director,
+    actors: results.Actors,
+    plot: results.Plot,
+    language: results.Language,
+    poster: results.Poster,
+    boatsValue: 1
+    }
+
+    db.moviesList.create(newMovie)
+      res.send("Movie Added to db");
     });
 
   });
