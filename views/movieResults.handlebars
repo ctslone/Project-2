@@ -1,0 +1,18 @@
+<div class="container">
+    <h1 class="text-center mt-5">Movie Results</h1>
+
+    <div class="results-container">
+        
+        {{#each results}}
+        <ul>
+        <li>{{Title}}</li>
+        <li>{{Year}}</li>
+        <li><img src="{{Poster}}" alt="Poster"></li>
+        <button class="add-movie" data-imdb = {{imdbID}}>Add</button>
+        </ul>
+        {{/each}}
+    </div>
+    
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/searchMovie.js"></script>
