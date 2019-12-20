@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "Uncbootcamp1!",
+    "database": "risingTidedb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "Uncbootcamp1!",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
