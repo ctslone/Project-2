@@ -55,25 +55,72 @@ module.exports = function (app) {
   app.put("/api/movie/up-boat/:imdbID", function (req, res) {
     var imdbID = req.params.imdbID;
     console.log(imdbID)
-    db.moviesList.increment({boatsValue:1},{where:{imdbid: imdbID}}).then(function(results){
+    db.moviesList.increment({ boatsValue: 1 }, { where: { imdbid: imdbID } }).then(function (results) {
       console.log(results);
       res.send("Movie was upBoated by 1");
-    }).catch(function(results){
+    }).catch(function (results) {
       console.log(results);
       res.send("error during upBoat");
     });
   });
 
-      // downBoat
+  // downBoat
   app.put("/api/movie/down-boat/:imdbID", function (req, res) {
     var imdbID = req.params.imdbID;
     console.log(imdbID)
-    db.moviesList.decrement({boatsValue:1},{where:{imdbid: imdbID}}).then(function(results){
+    db.moviesList.decrement({ boatsValue: 1 }, { where: { imdbid: imdbID } }).then(function (results) {
       console.log(results);
       res.send("Movie was downBoated by 1");
-    }).catch(function(results){
+    }).catch(function (results) {
       console.log(results);
       res.send("error during downBoat");
     });
   });
+
+  // homepage - popular
+  app.get("/api/movie/popular", function (req, res) {
+    db.moviesList.findAll({ order: [["boatsValue", "DESC"]] }).then(function (results) {
+      var responseArray = [];
+      results.forEach(element => {
+        responseArray.push(element.dataValues);
+      });
+      res.json(responseArray);
+    });
+  });
+
+  // homepage - newest
+  app.get("/api/movie/newest", function (req, res) {
+    db.moviesList.findAll({ order: [["createdAt", "DESC"]] }).then(function (results) {
+      var responseArray = [];
+      results.forEach(element => {
+        responseArray.push(element.dataValues);
+      });
+      res.json(responseArray);
+    });
+  });
+
+  // homepage - year
+  app.get("/api/movie/year", function (req, res) {
+    db.moviesList.findAll({ order: [["year", "DESC"]] }).then(function (results) {
+      var responseArray = [];
+      results.forEach(element => {
+        responseArray.push(element.dataValues);
+      });
+      res.json(responseArray);
+    });
+  });
+
+  // homepage - title
+  app.get("/api/movie/title", function (req, res) {;
+    db.moviesList.findAll({ order: [["title", "ASC"]] }).then(function (results) {
+      var responseArray = [];
+      results.forEach(element => {
+        responseArray.push(element.dataValues);
+      });
+      res.json(responseArray);
+    });
+  });
+
 };
+
+
