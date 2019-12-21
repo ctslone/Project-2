@@ -8,7 +8,13 @@
         <li>{{Title}}</li>
         <li>{{Year}}</li>
         <li><img src="{{Poster}}" alt="Poster"></li>
-        <button class="add-movie" data-imdb = {{imdbID}}>Add</button>
+        {{#if source}}
+        <li>boatsValue: {{boatsValue}}</li>
+        <button class="up-boat" data-imdbid = {{imdbID}}>UP Boat</button>
+        <button class="down-boat" data-imdbid = {{imdbID}}>Down Boat</button>
+        {{else}}
+        <button class="add-movie" data-imdbid = {{imdbID}}>Recommend</button>
+        {{/if}}
         </ul>
         {{/each}}
     </div>

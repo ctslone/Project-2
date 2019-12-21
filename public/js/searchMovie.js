@@ -5,10 +5,34 @@ $("#search-movie").on("click", function(){
 });
 
 $(".add-movie").on("click", function(){
-    imdbID = $(this).data("imdb")
+    imdbID = $(this).data("imdbid");
     console.log(imdbID);
     $.ajax({
         url: "/api/movie/add/" + imdbID,
         method: "POST"
+    }).then(function(response){
+        location.reload();
+    });
+});
+
+$(".up-boat").on("click", function(){
+    imdbID = $(this).data("imdbid");
+    console.log(imdbID);
+    $.ajax({
+        url:"/api/movie/up-boat/"+imdbID,
+        method: "PUT"
+    }).then(function(response){
+        location.reload();
+    });
+});
+
+$(".down-boat").on("click", function(){
+    imdbID = $(this).data("imdbid");
+    console.log(imdbID);
+    $.ajax({
+        url:"/api/movie/down-boat/"+imdbID,
+        method: "PUT"
+    }).then(function(response){
+        location.reload();
     });
 });
