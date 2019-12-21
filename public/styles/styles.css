@@ -1,3 +1,8 @@
+@font-face {
+  font-family: wave;
+  src: url(/styles/wave.ttf)
+}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -7,16 +12,41 @@
 }
 
 #main-title {
-  border: 2px solid black;
+  font-family: wave;
+  font-size: 2.5em;
+  text-shadow: 2px 2px rgb(0, 204, 255)
+  /* border: 2px solid black; */
 }
 
 #movie-dock {
   border: 2px solid black;
+  background: repeating-linear-gradient( 
+    90deg,
+    rgb(83, 47, 0),
+    rgb(83, 47, 0) 20px,
+    rgb(112, 65, 21) 20px,
+    rgb(112, 65, 21) 40px);
+  border-radius: 20px;
+  font-family: wave;
+  color: white;
+  font-size: 0.5em
+  
 }
 
 #movie-cards {
   border: 2px solid black;
+  padding-top: 35px;
 }
+
+/* #up-boat {
+  float: left;
+  text-align: center;
+}
+
+#down-boat {
+  float: right;
+  text-align: center;
+} */
 
 #next-btn, #back-btn {
   height: 300px
