@@ -3,7 +3,7 @@
 }
 
 .container {
-  width: 90%;
+  width: 97%;
 }
 
 #main-title {
@@ -16,4 +16,8 @@
 
 #movie-cards {
   border: 2px solid black;
+}
+
+#next-btn, #back-btn {
+  height: 300px
 }
