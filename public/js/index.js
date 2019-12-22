@@ -1,3 +1,8 @@
+$("#add-review").on("click", function() {
+  window.location.href = "/movie/search";
+})
+
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
