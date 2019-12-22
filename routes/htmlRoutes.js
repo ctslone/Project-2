@@ -33,10 +33,20 @@ module.exports = function (app) {
   });
 
   // Movie Results Page
-  app.get("/movie/search/:name", function(req, res){
+  app.get("/movie/search/:name", function (req, res) {
     movieName = req.params.name;
-    searchMovie(movieName,function(movieResults){
-      res.render("movieResults", {results: movieResults});
+    searchMovie(movieName, function (movieResults) {
+
+      movieResults.forEach(element => {
+        db.moviesList.findOne({ where: { imdbid: element.imdbID } }).then(function (results) {
+          if (results != null){
+            element.source = "db";
+            element.boatsValue = results.boatsValue;
+          };
+        });
+
+      });
+      res.render("movieResults", { results: movieResults });
     });
   });
 
