@@ -1,6 +1,7 @@
 var db = require("../models");
 var helperFunctions = require("../routes/helperFunctions.js")
 var searchMovie = helperFunctions.searchMovie;
+var checkDbMovie = helperFunctions.checkDbMovie;
 
 
 module.exports = function (app) {
@@ -37,17 +38,9 @@ module.exports = function (app) {
   app.get("/movie/search/:name", function (req, res) {
     movieName = req.params.name;
     searchMovie(movieName, function (movieResults) {
-
-      movieResults.forEach(element => {
-        db.moviesList.findOne({ where: { imdbid: element.imdbID } }).then(function (results) {
-          if (results != null){
-            element.source = "db";
-            element.boatsValue = results.boatsValue;
-          };
-        });
-
-      });
-      res.render("movieResults", { results: movieResults });
+      checkDbMovie(movieResults, function(checkedResults){
+        res.render("movieResults", { results: checkedResults });
+      })
     });
   });
 
