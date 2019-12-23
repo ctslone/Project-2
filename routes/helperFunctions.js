@@ -1,4 +1,5 @@
 require("dotenv").config();
+var db = require("../models");
 var axios = require("axios")
 // var moment = require("moment")
 // var keys = require("./keys");
@@ -11,17 +12,35 @@ var searchText = process.argv.splice(3).join("+");
 function searchMovie(movieName, cb) {
     queryURL = "http://www.omdbapi.com/?apikey=trilogy&type=movie&s=" + movieName
     axios.get(queryURL).then(function (results) {
-            cb(results.data.Search);
+        cb(results.data.Search);
     });
 };
 
 function findMovie(imdbId, cb) {
     queryURL = "http://www.omdbapi.com/?apikey=trilogy&i=" + imdbId
     axios.get(queryURL).then(function (results) {
-            cb(results.data);
+        cb(results.data);
     });
 };
-
+function checkDbMovie(movieResults, cb) {
+    counter = 1;
+    movieResults.forEach(element => {
+        db.moviesList.findOne({ where: { imdbid: element.imdbID } }).then(function (results) {
+            if (results != null) {
+                element.source = "db";
+                element.boatsValue = results.boatsValue;
+            }
+            else {
+            };
+            if (counter == movieResults.length){
+                cb(movieResults);
+            }
+            else{
+                counter++;
+            };
+        });
+    });
+};
 function findSong() {
     if (searchText == "") {
         searchText = "The Sign"
@@ -73,4 +92,4 @@ function runSwitch() {
 
 runSwitch();
 
-module.exports = {searchMovie: searchMovie, findMovie: findMovie};
+module.exports = { searchMovie: searchMovie, findMovie: findMovie, checkDbMovie: checkDbMovie };
