@@ -1,24 +1,48 @@
 <div class="container">
     <h1 class="text-center mt-5">Movie Results</h1>
 
-    <div class="results-container">
-        
+    {{!-- <div class="results-container">
+
         {{#each results}}
         <ul>
-        <li>{{Title}}</li>
-        <li>{{Year}}</li>
-        <li><img src="{{Poster}}" alt="Poster"></li>
-        {{#if source}}
-        <li>boatsValue: {{boatsValue}}</li>
-        <button class="up-boat" data-imdbid = {{imdbID}}>UP Boat</button>
-        <button class="down-boat" data-imdbid = {{imdbID}}>Down Boat</button>
-        {{else}}
-        <button class="add-movie" data-imdbid = {{imdbID}}>Recommend</button>
-        {{/if}}
+            <li>{{Title}}</li>
+            <li>{{Year}}</li>
+            <li><img src="{{Poster}}" alt="Poster"></li>
+            {{#if source}}
+            <li>boatsValue: {{boatsValue}}</li>
+            <button class="up-boat" data-imdbid={{imdbID}}>UP Boat</button>
+            <button class="down-boat" data-imdbid={{imdbID}}>Down Boat</button>
+            {{else}}
+            <button class="add-movie" data-imdbid={{imdbID}}>Recommend</button>
+            {{/if}}
         </ul>
         {{/each}}
+    </div> --}}
+
+    <div class="container">
+        <div class="row">
+            {{#each results}}
+            <div class="card col l2">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator responsive-img" src="{{Poster}}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{Title}}<i
+                            class="material-icons right">more_vert</i></span>
+                    <p><a href="#">This is a link</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{Title}}<i
+                            class="material-icons right">close</i></span>
+                    <ul>
+                        <li>Year: {{Year}}</li>
+                    </ul>
+                </div>
+            </div>
+            {{/each}}
+        </div>
     </div>
-    
+
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/searchMovie.js"></script>

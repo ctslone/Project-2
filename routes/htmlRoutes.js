@@ -15,6 +15,11 @@ module.exports = function (app) {
     });
   });
 
+  // Load the home page that displays all reviews
+  app.get("/home", function(req, res) {
+    res.render("home");
+  });
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function (req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
