@@ -36,3 +36,15 @@ $(".down-boat").on("click", function(){
         location.reload();
     });
 });
+
+$(".card").on("click", function(){
+    imdbID = $(this).data("imdbid");
+    console.log(imdbID);
+    $.ajax({
+        url:"/api/movie/"+imdbID,
+        method: "GET"
+    }).then(function(response){
+        console.log(response.Ratied);
+
+    });
+});

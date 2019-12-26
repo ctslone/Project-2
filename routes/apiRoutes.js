@@ -77,6 +77,16 @@ module.exports = function (app) {
     });
   });
 
+  // movie-details
+  app.get("/api/movie/:imdbID", function(req, res){
+    var imdbID = req.params.imdbID;
+    findMovie(imdbID, function(results){
+      console.log(results);
+      res.json(results);
+    });
+
+  });
+
   // homepage - popular
   app.get("/api/movie/popular", function (req, res) {
     db.moviesList.findAll({ order: [["boatsValue", "DESC"]] }).then(function (results) {

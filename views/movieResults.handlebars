@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row">
             {{#each results}}
-            <div class="card col l2">
+            <div class="card col l2" data-imdbid = "{{imdbID}}">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator responsive-img" src="{{Poster}}">
                 </div>
@@ -36,6 +36,7 @@
                             class="material-icons right">close</i></span>
                     <ul>
                         <li>Year: {{Year}}</li>
+                        <li class = "raiting">Rating: </li>
                     </ul>
                 </div>
             </div>
