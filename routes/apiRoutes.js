@@ -28,7 +28,7 @@ module.exports = function (app) {
   app.post("/api/movie/add/:imdbID", function (req, res) {
     imdbID = req.params.imdbID;
     findMovie(imdbID, function (results) {
-      console.log(results);
+      // console.log(results);
 
       newMovie = {
         imdbid: results.imdbID,
@@ -54,12 +54,12 @@ module.exports = function (app) {
   // downBoat
   app.put("/api/movie/up-boat/:imdbID", function (req, res) {
     var imdbID = req.params.imdbID;
-    console.log(imdbID)
+    // console.log(imdbID)
     db.moviesList.increment({ boatsValue: 1 }, { where: { imdbid: imdbID } }).then(function (results) {
-      console.log(results);
+      // console.log(results);
       res.send("Movie was upBoated by 1");
     }).catch(function (results) {
-      console.log(results);
+      // console.log(results);
       res.send("error during upBoat");
     });
   });
@@ -67,14 +67,24 @@ module.exports = function (app) {
   // downBoat
   app.put("/api/movie/down-boat/:imdbID", function (req, res) {
     var imdbID = req.params.imdbID;
-    console.log(imdbID)
+    // console.log(imdbID)
     db.moviesList.decrement({ boatsValue: 1 }, { where: { imdbid: imdbID } }).then(function (results) {
-      console.log(results);
+      // console.log(results);
       res.send("Movie was downBoated by 1");
     }).catch(function (results) {
-      console.log(results);
+      // console.log(results);
       res.send("error during downBoat");
     });
+  });
+
+  // movie-details
+  app.get("/api/movie/:imdbID", function(req, res){
+    var imdbID = req.params.imdbID;
+    findMovie(imdbID, function(results){
+      // console.log(results);
+      res.json(results);
+    });
+
   });
 
   // homepage - popular
