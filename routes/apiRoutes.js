@@ -88,7 +88,7 @@ module.exports = function (app) {
   });
 
   // homepage - popular
-  app.get("/api/movie/popular", function (req, res) {
+  app.get("/api/movie-find/popular", function (req, res) {
     db.moviesList.findAll({ order: [["boatsValue", "DESC"]] }).then(function (results) {
       var responseArray = [];
       results.forEach(element => {
@@ -99,7 +99,7 @@ module.exports = function (app) {
   });
 
   // homepage - newest
-  app.get("/api/movie/newest", function (req, res) {
+  app.get("/api/movie-find/newest", function (req, res) {
     db.moviesList.findAll({ order: [["createdAt", "DESC"]] }).then(function (results) {
       var responseArray = [];
       results.forEach(element => {
@@ -110,7 +110,7 @@ module.exports = function (app) {
   });
 
   // homepage - year
-  app.get("/api/movie/year", function (req, res) {
+  app.get("/api/movie-find/year", function (req, res) {
     db.moviesList.findAll({ order: [["year", "DESC"]] }).then(function (results) {
       var responseArray = [];
       results.forEach(element => {
@@ -121,7 +121,7 @@ module.exports = function (app) {
   });
 
   // homepage - title
-  app.get("/api/movie/title", function (req, res) {;
+  app.get("/api/movie-find/title", function (req, res) {;
     db.moviesList.findAll({ order: [["title", "ASC"]] }).then(function (results) {
       var responseArray = [];
       results.forEach(element => {
