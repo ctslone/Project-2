@@ -39,12 +39,13 @@ $(".down-boat").on("click", function(){
 
 $(".card").on("click", function(){
     imdbID = $(this).data("imdbid");
-    console.log(imdbID);
+    
     $.ajax({
         url:"/api/movie/"+imdbID,
         method: "GET"
     }).then(function(response){
-        console.log(response.Ratied);
-
+        console.log(response.Rated);
+        $("[data-imdbid = "+ imdbID).find(".rating").text("Rating: " + response.Rated);
+        $("[data-imdbid = "+ imdbID).find(".plot").text("Plot: " + response.Plot);
     });
 });
