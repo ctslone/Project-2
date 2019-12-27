@@ -1,35 +1,28 @@
 <div class="container">
-    <h1 class="text-center mt-5">Movie Results</h1>
-
-    {{!-- <div class="results-container">
-
-        {{#each results}}
-        <ul>
-            <li>{{Title}}</li>
-            <li>{{Year}}</li>
-            <li><img src="{{Poster}}" alt="Poster"></li>
-            {{#if source}}
-            <li>boatsValue: {{boatsValue}}</li>
-            <button class="up-boat" data-imdbid={{imdbID}}>UP Boat</button>
-            <button class="down-boat" data-imdbid={{imdbID}}>Down Boat</button>
-            {{else}}
-            <button class="add-movie" data-imdbid={{imdbID}}>Recommend</button>
-            {{/if}}
-        </ul>
-        {{/each}}
-    </div> --}}
+    <h1 id="main-res-title" class="center">Movie Results</h1>
 
     <div class="container">
         <div class="row">
             {{#each results}}
-            <div class="card col l2" data-imdbid = "{{imdbID}}">
+            <div data-imdbid="{{imdbID}}" class="card col l2 sticky-action" id="results-card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator responsive-img" src="{{Poster}}">
+                    <img id="poster-img" class="activator responsive-img" src="{{Poster}}">
                 </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{Title}}<i
-                            class="material-icons right">more_vert</i></span>
-                    <p><a href="#">This is a link</a></p>
+                <div id="results-content" class="card-content">
+
+                    <div id="movie-title-div" class="center-align valign-wrapper">
+                        <p id="movie-title">{{Title}}</p>
+                    </div>
+                    
+                    <div id="boats-div" class="center-align" >
+                        {{#if source}}
+                            <a id="up-boat"><i class="material-icons left up-boat" data-imdbid="{{imdbID}}">keyboard_arrow_up</i></a>
+                            <span>{{boatsValue}}</span>
+                            <a id="down-boat"><i class="material-icons right down-boat" data-imdbid="{{imdbID}}">keyboard_arrow_down</i></a>
+                        {{else}}
+                        <a class="waves-effect waves-light btn-small add-movie" data-imdbid="{{imdbID}}"><i class="material-icons right">favorite</i>Add</a>
+                        {{/if}}
+                    </div>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{Title}}<i
