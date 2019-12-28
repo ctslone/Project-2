@@ -4,7 +4,7 @@ CREATE DATABASE risingTidedb;
 CREATE TABLE movies
 (
 	'imbdid' int NOT NULL AUTO_INCREMENT,
-	'title varchar(255) NOT NULL,
+	'title' varchar(255) NOT NULL,
 	'year' TEXT NOT NULL,
     'rated' varchar(255) NOT NULL,
     'runtime' varchar(255) NOT NULL,
