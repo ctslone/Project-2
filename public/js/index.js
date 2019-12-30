@@ -1,5 +1,9 @@
+$(".dropdown-trigger").dropdown();
 $(document).ready(function () {
   console.log("load")
+
+  
+
   // take user to the add page
   $("#add-review").on("click", function () {
     window.location.href = "/movie/search";
