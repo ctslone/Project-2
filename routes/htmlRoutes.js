@@ -15,9 +15,13 @@ module.exports = function (app) {
     });
   });
 
-  // Load the home page that displays all reviews
+  // Load the home page that displays all reviews in descending order
   app.get("/home", function(req, res) {
-    res.render("home");
+    db.moviesList.findAll({ order: [["boatsValue", "DESC"]] }).then(function (results) {
+      res.render("home", {
+        popular: results
+      });
+    });
   });
 
   // Load example page and pass in an example by id

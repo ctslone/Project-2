@@ -12,6 +12,7 @@ $(".add-movie").on("click", function(){
         method: "POST"
     }).then(function(response){
         location.reload();
+        window.location.href = "/home";
     });
 });
 

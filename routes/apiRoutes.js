@@ -3,26 +3,6 @@ var helperFunctions = require("../routes/helperFunctions.js");
 var findMovie = helperFunctions.findMovie;
 
 module.exports = function (app) {
-  // Get all examples
-  app.get("/api/examples", function (req, res) {
-    db.Example.findAll({}).then(function (dbExamples) {
-      res.json(dbExamples);
-    });
-  });
-
-  // Create a new example
-  app.post("/api/examples", function (req, res) {
-    db.Example.create(req.body).then(function (dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function (req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-      res.json(dbExample);
-    });
-  });
 
   // Add new movie to db
   app.post("/api/movie/add/:imdbID", function (req, res) {
@@ -51,7 +31,7 @@ module.exports = function (app) {
 
   });
 
-  // downBoat
+  // upBoat
   app.put("/api/movie/up-boat/:imdbID", function (req, res) {
     var imdbID = req.params.imdbID;
     // console.log(imdbID)
@@ -88,18 +68,19 @@ module.exports = function (app) {
   });
 
   // homepage - popular
-  app.get("/api/movie/popular", function (req, res) {
+  app.get("/api/movie-find/popular", function (req, res) {
     db.moviesList.findAll({ order: [["boatsValue", "DESC"]] }).then(function (results) {
       var responseArray = [];
       results.forEach(element => {
         responseArray.push(element.dataValues);
       });
       res.json(responseArray);
+      // res.render("home");
     });
   });
 
   // homepage - newest
-  app.get("/api/movie/newest", function (req, res) {
+  app.get("/api/movie-find/newest", function (req, res) {
     db.moviesList.findAll({ order: [["createdAt", "DESC"]] }).then(function (results) {
       var responseArray = [];
       results.forEach(element => {
@@ -110,7 +91,7 @@ module.exports = function (app) {
   });
 
   // homepage - year
-  app.get("/api/movie/year", function (req, res) {
+  app.get("/api/movie-find/year", function (req, res) {
     db.moviesList.findAll({ order: [["year", "DESC"]] }).then(function (results) {
       var responseArray = [];
       results.forEach(element => {
@@ -121,7 +102,7 @@ module.exports = function (app) {
   });
 
   // homepage - title
-  app.get("/api/movie/title", function (req, res) {;
+  app.get("/api/movie-find/title", function (req, res) {;
     db.moviesList.findAll({ order: [["title", "ASC"]] }).then(function (results) {
       var responseArray = [];
       results.forEach(element => {
