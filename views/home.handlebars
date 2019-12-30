@@ -23,16 +23,18 @@
         <div class="col s12 valign-wrapper" id="movie-dock">
             <h3>Movies Dock</h3>
             <!-- Dropdown Trigger -->
-            <a class='dropdown-trigger btn' href='' data-target='dropdown1'>Drop Me!</a>
+            <a class='dropdown-trigger btn' href='' data-target='movie-sort'>Sort By</a>
 
             <!-- Dropdown Structure -->
-            <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
+            <ul id='movie-sort' class='dropdown-content'>
+                <li><a href="/home">Popular</a></li>
                 <li class="divider" tabindex="-1"></li>
-                <li><a href="#!">three</a></li>
-                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                <li><a href="/api/movie-find/newest">New</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="/api/movie-find/year">Year</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="/api/movie-find/title">Title</a></li>
+                <li class="divider" tabindex="-1"></li>
             </ul>
         </div>
     </div>
