@@ -16,14 +16,15 @@ $(document).ready(function () {
       url: "/api/movie-find/popular",
       method: "GET"
     }).then(function (response) {
-      console.log(response.length);
+      console.log(response[0]);
       for (var i=0; i<response.length; i++) {
         // front
         $(".main-card-" + i).find("#poster-img").attr("src", response[i].poster);
         $(".main-card-" + i).find("#movie-title").text(response[i].title);
         $(".main-card-" + i).find("#boat-value").text(response[i].boatsValue);
-        $(".main-card-" + i).find(".up-boat").data("imdbid", response[i].imdbid)
+        $(".main-card-" + i).find(".up-boat").data("imdbid", response[i].imdbid);
         $(".main-card-" + i).find(".down-boat").data("imdbid", response[i].imdbid);
+        $(".main-card-" + i).data("imdbid", response[i].imdbid);
         // back
         $(".main-card-" + i).find(".card-title").text(response[i].title);
         $(".main-card-" + i).find("#movie-year").text("Year: " + response[i].year);
@@ -46,6 +47,7 @@ $(document).ready(function () {
         $(".main-card-" + i).find("#boat-value").text(response[i].boatsValue);
         $(".main-card-" + i).find(".up-boat").data("imdbid", response[i].imdbid)
         $(".main-card-" + i).find(".down-boat").data("imdbid", response[i].imdbid);
+        $(".main-card-" + i).data("imdbid", response[i].imdbid);
         // back
         $(".main-card-" + i).find(".card-title").text(response[i].title);
         $(".main-card-" + i).find("#movie-year").text("Year: " + response[i].year);
@@ -68,6 +70,7 @@ $(document).ready(function () {
         $(".main-card-" + i).find("#boat-value").text(response[i].boatsValue);
         $(".main-card-" + i).find(".up-boat").data("imdbid", response[i].imdbid)
         $(".main-card-" + i).find(".down-boat").data("imdbid", response[i].imdbid);
+        $(".main-card-" + i).data("imdbid", response[i].imdbid);
         // back
         $(".main-card-" + i).find(".card-title").text(response[i].title);
         $(".main-card-" + i).find("#movie-year").text("Year: " + response[i].year);
@@ -90,6 +93,7 @@ $(document).ready(function () {
         $(".main-card-" + i).find("#boat-value").text(response[i].boatsValue);
         $(".main-card-" + i).find(".up-boat").data("imdbid", response[i].imdbid)
         $(".main-card-" + i).find(".down-boat").data("imdbid", response[i].imdbid);
+        $(".main-card-" + i).data("imdbid", response[i].imdbid);
         // back
         $(".main-card-" + i).find(".card-title").text(response[i].title);
         $(".main-card-" + i).find("#movie-year").text("Year: " + response[i].year);
@@ -129,7 +133,7 @@ $(".card").on("click", function(){
         url:"/api/movie/"+imdbid,
         method: "GET"
     }).then(function(response){
-        console.log(response);
+        // console.log(response);
         $("[data-imdbid = "+ imdbid).find(".rating").text("Rating: " + response.Rated);
         $("[data-imdbid = "+ imdbid).find(".plot").text("Plot: " + response.Plot);
     });

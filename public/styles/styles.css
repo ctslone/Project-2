@@ -77,6 +77,16 @@ nav {
   height: 300px
 }
 
+#up-boat:hover {
+  cursor: pointer;
+  color: lime;
+}
+
+#down-boat:hover {
+  cursor: pointer;
+  color: red;
+}
+
 /* search page */
 
 #search-title {
