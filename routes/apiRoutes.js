@@ -75,7 +75,7 @@ module.exports = function (app) {
         responseArray.push(element.dataValues);
       });
       res.json(responseArray);
-      // res.render("home");
+      // res.render("home")
     });
   });
 
@@ -87,6 +87,7 @@ module.exports = function (app) {
         responseArray.push(element.dataValues);
       });
       res.json(responseArray);
+      // res.render("home");
     });
   });
 
