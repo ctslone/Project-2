@@ -1,16 +1,36 @@
 $(".dropdown-trigger").dropdown();
+
 $(document).ready(function () {
   console.log("load")
-
+  popularMovies();
   
-
   // take user to the add page
   $("#add-review").on("click", function () {
     window.location.href = "/movie/search";
   })
 
+  $("#movie-sort a").on("click", function () {
+    // console.log($(this).text())
+    if ($(this).text() === "Popular") {
+      console.log("Popular")
+      popularMovies()
+    }
+    else if ($(this).text() === "New") {
+      console.log("New");
+      newMovies()
+    }
+    else if ($(this).text() === "Year") {
+      console.log("Year")
+      yearMovies()
+    }
+    else if ($(this).text() === "Title") {
+      console.log("Title")
+      titleMovies()
+    };
+  });
+
   // loads movie cards from the DB based on popular (boats value descending)
-  if (location.href === "http://localhost:3000/home") {
+  function popularMovies () {
     console.log("home");
     $.ajax({
       url: "/api/movie-find/popular",
@@ -34,7 +54,7 @@ $(document).ready(function () {
     });
   }
 
-  else if (location.href  === "http://localhost:3000/home/new") {
+  function newMovies () {
     $.ajax({
       url: "/api/movie-find/newest",
       method: "GET"
@@ -57,7 +77,7 @@ $(document).ready(function () {
     });
   }
 
-  else if (location.href  === "http://localhost:3000/home/year") {
+  function yearMovies () {
     $.ajax({
       url: "/api/movie-find/year",
       method: "GET"
@@ -80,7 +100,7 @@ $(document).ready(function () {
     });
   }
 
-  else if (location.href  === "http://localhost:3000/home/title") {
+  function titleMovies () {
     $.ajax({
       url: "/api/movie-find/title",
       method: "GET"
