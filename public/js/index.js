@@ -3,6 +3,7 @@ $(".dropdown-trigger").dropdown();
 var globalID;
 
 $(document).ready(function () {
+
   console.log("load")
   var offsetVal = $("#sort-btn").data("offset");
   popularMovies(offsetVal);
@@ -128,6 +129,10 @@ $(document).ready(function () {
       var newOffset = parseInt(currentOffset) + (+5);
       $("#sort-btn").attr("data-offset", newOffset);
       sortBy(whichSort, currentOffset);
+      M.toast({
+        html: "Thank you for the review!",
+        classes: "teal rounded"
+      });
     });
   });
 
@@ -143,6 +148,10 @@ $(document).ready(function () {
       var newOffset = parseInt(currentOffset) + (+5);
       $("#sort-btn").attr("data-offset", newOffset);
       sortBy(whichSort, currentOffset);
+      M.toast({
+        html: "Thank you for the review!",
+        classes: "teal rounded"
+      });
     });
   });
 
@@ -176,6 +185,12 @@ $(document).ready(function () {
       $("#sort-btn").attr("data-offset", newOffset);
       sortBy(whichSort, newOffset);
     }
+    else {
+      M.toast({
+        html: "You are at the beginning of the movie list!",
+        classes: "amber rounded"
+      });
+    }
 
   });
 
@@ -205,7 +220,10 @@ $(document).ready(function () {
       var currentOffset = $("#sort-btn").attr("data-offset");
       var newOffset = parseInt(currentOffset) - (+5);
       $("#sort-btn").attr("data-offset", newOffset);
+      M.toast({
+        html: "You are at the end of the movie list!",
+        classes: "amber rounded"
+      });
     }
-  }
-
-})
+  };
+});

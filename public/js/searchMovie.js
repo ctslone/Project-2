@@ -39,8 +39,6 @@ $(".down-boat").on("click", function(){
 });
 
 $(".card").on("click", function(){
-    imdbID = $(this).data("imdbid");
-    
     $.ajax({
         url:"/api/movie/"+imdbID,
         method: "GET"
