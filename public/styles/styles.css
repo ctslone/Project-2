@@ -66,6 +66,10 @@ nav {
   
 }
 
+#sort-btn {
+  margin-left: 20px;
+}
+
 /* home cards */
 
 #movie-cards {
@@ -74,7 +78,7 @@ nav {
 }
 
 #next-btn, #back-btn {
-  height: 300px
+  
 }
 
 #up-boat:hover {

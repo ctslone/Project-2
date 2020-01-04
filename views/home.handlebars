@@ -20,18 +20,18 @@
         <div class="col s12 valign-wrapper" id="movie-dock">
             <h3>Movies Dock</h3>
             <!-- Dropdown Trigger -->
-            <a class='dropdown-trigger btn' href='' data-target='movie-sort'>Sort By</a>
+            <a data-offset="0" data-sort="Popular" id="sort-btn" class='dropdown-trigger btn' data-target='movie-sort'>Sort By</a>
 
             <!-- Dropdown Structure -->
             <ul id='movie-sort' class='dropdown-content'>
-                    <li><a>Popular</a></li>
-                    <li class="divider" tabindex="-1"></li>
-                    <li><a>New</a></li>
-                    <li class="divider" tabindex="-1"></li>
-                    <li><a>Year</a></li>
-                    <li class="divider" tabindex="-1"></li>
-                    <li><a>Title</a></li>
-                    <li class="divider" tabindex="-1"></li>
+                <li><a>Popular</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a>New</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a>Year</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a>Title</a></li>
+                <li class="divider" tabindex="-1"></li>
             </ul>
         </div>
     </div>
@@ -193,142 +193,14 @@
             </div>
         </div>
 
-
-        <!-- {{#each popular}}
-            <div data-imdbid="{{imdbid}}" class="card col l2 sticky-action" id="results-card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img id="poster-img" class="activator responsive-img" src="{{poster}}">
-                </div>
-                <div id="results-content" class="card-content">
-
-                    <div id="movie-title-div" class="center-align valign-wrapper">
-                        <p id="movie-title">{{title}}</p>
-                    </div>
-                    
-                    <div id="boats-div" class="center-align">
-                            <a id="up-boat"><i class="material-icons left up-boat" data-imdbid="{{imdbid}}">keyboard_arrow_up</i></a>
-                            <span>{{boatsValue}}</span>
-                            <a id="down-boat"><i class="material-icons right down-boat" data-imdbid="{{imdbid}}">keyboard_arrow_down</i></a>
-                        
-                    </div>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">{{title}}<i
-                            class="material-icons right">close</i></span>
-                    <ul>
-                        <li>Year: {{year}}</li>
-                        <li class = "rating">Rating: </li>
-                        <br>
-                        {{!-- <li class = "Genre">Genre: </li> --}}
-                        <li class = "plot">Plot: </li>
-                        
-                    </ul>
-                </div>
-            </div>
-            {{/each}}
-            -->
-
-        {{!-- <div class="col s12 align-center" id="movie-cards">
-            <div class="row">
-                <div class="col m1 valign-wrapper" id="next-btn">
-                    <a class="waves-effect waves-light btn-small center-align"><i class="material-icons left">arrow_back</i></a>
-                </div>
-                <div class="card col m2">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://via.placeholder.com/150">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Movie Title</span>
-                    </div>
-                    <div class="card-action">
-                            <a href="#" id="up-boat"><i class="material-icons left">keyboard_arrow_up</i></a>
-                            <a href="#" id="down-boat"><i class="material-icons right">keyboard_arrow_down</i></a>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Movie Title<i
-                                class="material-icons right">close</i></span>
-                        <p>Here is some more information about this movie that is only revealed once clicked on.</p>
-                    </div>
-                </div>
-
-                <div class="card col m2">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://via.placeholder.com/150">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Movie Title</span>
-                    </div>
-                    <div class="card-action">
-                            <a href="#" id="up-boat"><i class="material-icons left">keyboard_arrow_up</i></a>
-                            <a href="#" id="down-boat"><i class="material-icons right">keyboard_arrow_down</i></a>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Movie Title<i
-                                class="material-icons right">close</i></span>
-                        <p>Here is some more information about this movie that is only revealed once clicked on.</p>
-                    </div>
-                </div>
-
-                <div class="card col m2">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://via.placeholder.com/150">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Movie Title</span>
-                    </div>
-                    <div class="card-action">
-                            <a href="#" id="up-boat"><i class="material-icons left">keyboard_arrow_up</i></a>
-                            <a href="#" id="down-boat"><i class="material-icons right">keyboard_arrow_down</i></a>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Movie Title<i
-                                class="material-icons right">close</i></span>
-                        <p>Here is some more information about this movie that is only revealed once clicked on.</p>
-                    </div>
-                </div>
-
-                <div class="card col m2">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://via.placeholder.com/150">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Movie Title</span>
-                    </div>
-                    <div class="card-action">
-                            <a href="#" id="up-boat"><i class="material-icons left">keyboard_arrow_up</i></a>
-                            <a href="#" id="down-boat"><i class="material-icons right">keyboard_arrow_down</i></a>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Movie Title<i
-                                class="material-icons right">close</i></span>
-                        <p>Here is some more information about this movie that is only revealed once clicked on.</p>
-                    </div>
-                </div>
-
-                <div class="card col m2">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="https://via.placeholder.com/150">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Movie Title</span>
-                    </div>
-                    <div class="card-action">
-                            <a href="#" id="up-boat"><i class="material-icons left">keyboard_arrow_up</i></a>
-                            <a href="#" id="down-boat"><i class="material-icons right">keyboard_arrow_down</i></a>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Movie Title<i
-                                class="material-icons right">close</i></span>
-                        <p>Here is some more information about this movie that is only revealed once clicked on.</p>
-                    </div>
-                </div>
-
-                <div class="col m1 valign-wrapper center" id="back-btn">
-                    <a class="waves-effect waves-light btn-small"><i class="material-icons right">arrow_forward</i></a>
-                </div>
-
-            </div>
-        </div> --}}
-
-
     </div>
+    <div class="row">
+        <div class="col l12 center-align">
+            <button id="back-btn" class="btn transparent black-text">Back
+                <i class="material-icons left">arrow_back</i></button>
+            <button id="next-btn" class="btn transparent black-text">Next
+                <i class="material-icons right">arrow_forward</i>
+            </button>
+        </div>
+    </div>
+</div>

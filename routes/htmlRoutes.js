@@ -17,27 +17,19 @@ module.exports = function (app) {
 
   // Load the home page that displays all reviews in descending order
   app.get("/home", function(req, res) {
-    // db.moviesList.findAll({ order: [["boatsValue", "DESC"]] }).then(function (results) {
       res.render("home");
-    // });
   });
 
   app.get("/home/new", function(req, res) {
-    // db.moviesList.findAll({ order: [["boatsValue", "DESC"]] }).then(function (results) {
       res.render("home");
-    // });
   });
 
   app.get("/home/year", function(req, res) {
-    // db.moviesList.findAll({ order: [["boatsValue", "DESC"]] }).then(function (results) {
       res.render("home");
-    // });
   });
 
   app.get("/home/title", function(req, res) {
-    // db.moviesList.findAll({ order: [["boatsValue", "DESC"]] }).then(function (results) {
       res.render("home");
-    // });
   });
 
   // Load example page and pass in an example by id
