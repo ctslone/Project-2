@@ -123,7 +123,11 @@ $(document).ready(function () {
       url: "/api/movie/up-boat/" + imdbid,
       method: "PUT"
     }).then(function (response) {
-      location.reload();
+      var currentOffset = $("#sort-btn").attr("data-offset");
+      var whichSort = $("#sort-btn").attr("data-sort");
+      var newOffset = parseInt(currentOffset) + (+5);
+      $("#sort-btn").attr("data-offset", newOffset);
+      sortBy(whichSort, currentOffset);
     });
   });
 
@@ -134,7 +138,11 @@ $(document).ready(function () {
       url: "/api/movie/down-boat/" + imdbid,
       method: "PUT"
     }).then(function (response) {
-      location.reload();
+      var currentOffset = $("#sort-btn").attr("data-offset");
+      var whichSort = $("#sort-btn").attr("data-sort");
+      var newOffset = parseInt(currentOffset) + (+5);
+      $("#sort-btn").attr("data-offset", newOffset);
+      sortBy(whichSort, currentOffset);
     });
   });
 
