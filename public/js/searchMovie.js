@@ -1,7 +1,7 @@
 
 $("#search-movie").on("click", function(){
     movieName = $("#movieName").val().trim().replace(" ","+"); 
-    location.href = "http://localhost:3000/movie/search/"+movieName;
+    location.href = "/movie/search/" + movieName;
 });
 
 $(".add-movie").on("click", function(){
@@ -12,7 +12,7 @@ $(".add-movie").on("click", function(){
         method: "POST"
     }).then(function(response){
         location.reload();
-        window.location.href = "/home";
+        window.location.href = "/";
     });
 });
 
