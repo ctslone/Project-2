@@ -68,47 +68,80 @@ module.exports = function (app) {
   });
 
   // homepage - popular
-  app.get("/api/movie-find/popular", function (req, res) {
-    db.moviesList.findAll({ order: [["boatsValue", "DESC"]] }).then(function (results) {
-      var responseArray = [];
-      results.forEach(element => {
-        responseArray.push(element.dataValues);
+  app.get("/api/movie-find/popular/:offset", function (req, res) {
+    var offsetVal = parseInt(req.params.offset);
+    var movieCount = 0;
+    db.moviesList.count().then(function(count){
+      movieCount = count;
+      if (offsetVal > movieCount - 5) {
+        offsetVal = movieCount - 5;
+      };
+      db.moviesList.findAll({ order: [["boatsValue", "DESC"]], offset: offsetVal, limit: 5 }).then(function (results) {
+        var responseArray = [];
+        results.forEach(element => {
+          responseArray.push(element.dataValues);
+        });
+        res.json(responseArray);
+        // res.render("home");
       });
-      res.json(responseArray);
-      // res.render("home");
     });
   });
 
   // homepage - newest
-  app.get("/api/movie-find/newest", function (req, res) {
-    db.moviesList.findAll({ order: [["createdAt", "DESC"]] }).then(function (results) {
-      var responseArray = [];
-      results.forEach(element => {
-        responseArray.push(element.dataValues);
+  app.get("/api/movie-find/newest/:offset", function (req, res) {
+    var offsetVal = parseInt(req.params.offset);
+    var movieCount = 0;
+    db.moviesList.count().then(function(count){
+      movieCount = count;
+      if (offsetVal > movieCount - 5) {
+        offsetVal = movieCount - 5;
+      };
+      db.moviesList.findAll({ order: [["createdAt", "DESC"]], offset: offsetVal, limit: 5 }).then(function (results) {
+        var responseArray = [];
+        results.forEach(element => {
+          responseArray.push(element.dataValues);
+        });
+        res.json(responseArray);
       });
-      res.json(responseArray);
     });
   });
 
   // homepage - year
-  app.get("/api/movie-find/year", function (req, res) {
-    db.moviesList.findAll({ order: [["year", "DESC"]] }).then(function (results) {
-      var responseArray = [];
-      results.forEach(element => {
-        responseArray.push(element.dataValues);
+  app.get("/api/movie-find/year/:offset", function (req, res) {
+    var offsetVal = parseInt(req.params.offset);
+    var movieCount = 0;
+    db.moviesList.count().then(function(count){
+      movieCount = count;
+      if (offsetVal > movieCount - 5) {
+        offsetVal = movieCount - 5;
+      };
+      
+      db.moviesList.findAll({ order: [["year", "DESC"]], offset: offsetVal, limit: 5 }).then(function (results) {
+        var responseArray = [];
+        results.forEach(element => {
+          responseArray.push(element.dataValues);
+        });
+        res.json(responseArray);
       });
-      res.json(responseArray);
     });
   });
 
   // homepage - title
-  app.get("/api/movie-find/title", function (req, res) {;
-    db.moviesList.findAll({ order: [["title", "ASC"]] }).then(function (results) {
-      var responseArray = [];
-      results.forEach(element => {
-        responseArray.push(element.dataValues);
+  app.get("/api/movie-find/title/:offset", function (req, res) {
+    var offsetVal = parseInt(req.params.offset);
+    var movieCount = 0;
+    db.moviesList.count().then(function(count){
+      movieCount = count;
+      if (offsetVal > movieCount - 5) {
+        offsetVal = movieCount - 5;
+      };
+      db.moviesList.findAll({ order: [["title", "ASC"]], offset: offsetVal, limit: 5 }).then(function (results) {
+        var responseArray = [];
+        results.forEach(element => {
+          responseArray.push(element.dataValues);
+        });
+        res.json(responseArray);
       });
-      res.json(responseArray);
     });
   });
 
