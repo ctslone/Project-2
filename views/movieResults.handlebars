@@ -1,5 +1,14 @@
 <div class="container">
-    <h1 id="main-res-title" class="center">Movie Results</h1>
+    <div class="row">
+        <div class="col l12">
+            <h1 id="main-res-title" class="center">Movie Results
+                <a id="go-home" class="waves-effect waves-light btn">Home<i class="material-icons right">home</i></a>
+            </h1>
+            
+            
+        </div>
+    </div>
+
 
     <div class="container">
         <div class="row">
@@ -13,14 +22,17 @@
                     <div id="movie-title-div" class="center-align valign-wrapper">
                         <p id="movie-title">{{Title}}</p>
                     </div>
-                    
-                    <div id="boats-div" class="center-align" >
+
+                    <div id="boats-div" class="center-align">
                         {{#if source}}
-                            <a id="up-boat"><i class="material-icons left up-boat" data-imdbid="{{imdbID}}">keyboard_arrow_up</i></a>
-                            <span>{{boatsValue}}</span>
-                            <a id="down-boat"><i class="material-icons right down-boat" data-imdbid="{{imdbID}}">keyboard_arrow_down</i></a>
+                        <a id="up-boat"><i class="material-icons left up-boat"
+                                data-imdbid="{{imdbID}}">keyboard_arrow_up</i></a>
+                        <span>{{boatsValue}}</span>
+                        <a id="down-boat"><i class="material-icons right down-boat"
+                                data-imdbid="{{imdbID}}">keyboard_arrow_down</i></a>
                         {{else}}
-                        <a class="waves-effect waves-light btn-small add-movie" data-imdbid="{{imdbID}}"><i class="material-icons right">favorite</i>Add</a>
+                        <a class="waves-effect waves-light btn-small add-movie" data-imdbid="{{imdbID}}"><i
+                                class="material-icons right">favorite</i>Add</a>
                         {{/if}}
                     </div>
                 </div>
@@ -29,12 +41,12 @@
                             class="material-icons right">close</i></span>
                     <ul>
                         <li>Year: {{Year}}</li>
-                        <li class = "rating">Rating: </li>
-                        <li class = "imdb-link"><a href="https://www.imdb.com/title/{{imdbID}}">IMDB link</a></li>
+                        <li class="rating">Rating: </li>
+                        <li class="imdb-link"><a href="https://www.imdb.com/title/{{imdbID}}">IMDB link</a></li>
                         <br>
                         {{!-- <li class = "Genre">Genre: </li> --}}
-                        <li class = "plot">Plot: </li>
-                        
+                        <li class="plot">Plot: </li>
+
                     </ul>
                 </div>
             </div>
@@ -44,5 +56,6 @@
 
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="/js/searchMovie.js"></script>

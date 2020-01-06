@@ -12,14 +12,15 @@ $(".add-movie").on("click", function(){
         method: "POST"
     }).then(function(response){
         M.toast({
-            html: "Movie added! Redirecting to home.",
+            html: "Movie added!",
             classes: "amber rounded"
-          });
-        setTimeout(function() {
-            window.location.href = "/";  
-        }, 2000)  
+          });  
     });
 });
+
+$("#go-home").on("click", function() {
+    window.location.href = "/"
+})
 
 $(".up-boat").on("click", function(){
     imdbID = $(this).data("imdbid");
