@@ -70,6 +70,10 @@ nav {
   margin-left: 20px;
 }
 
+#small-nav-btns {
+  margin-left: 300px;
+}
+
 /* home cards */
 
 #movie-cards {
@@ -117,7 +121,8 @@ nav {
 
 #poster-img {
   height: 270px;
-  width: 180px;
+  width: auto;
+  margin: 0 auto;
 }
 
 #results-content {
@@ -140,4 +145,11 @@ nav {
 
 .plot {
   font-size: 12px;
+}
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }

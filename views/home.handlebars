@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-wrapper">
-        <a href="#!" id="nav-title" class="brand-logo align-left">Ahoy, matey!</a>
+        <a href="#!" id="nav-title" class="brand-logo left">Ahoy, matey !</a>
         <ul class="right">
             <li><a id="add-review" class="waves-effect waves-light btn">Set Sail<i
                         class="material-icons right">directions_boat</i></a></li>
@@ -33,14 +33,23 @@
                 <li><a>Title</a></li>
                 <li class="divider" tabindex="-1"></li>
             </ul>
+
+            <div id="small-nav-btns" class="hide-on-large-only right-align">
+                <button id="back-btn" class="btn transparent black-text">Back
+                <i class="material-icons left">arrow_back</i></button>
+            <button id="next-btn" class="btn transparent black-text">Next
+                <i class="material-icons right">arrow_forward</i>
+            </button>
+            </div>
+            
         </div>
     </div>
 
-    <div class="row" id="movie-row">
+    <div class="row flexbox" id="movie-row">
 
-        <div data-imdbid="" class="card col l2 sticky-action main-card-0" id="results-card">
+        <div data-imdbid="" class="card col s3 m3 l2 sticky-action main-card-0" id="results-card">
             <div class="card-image waves-effect waves-block waves-light">
-                <img id="poster-img" class="activator responsive-img" src="">
+                <img id="poster-img" class="activator" src="">
             </div>
             <div id="results-content" class="card-content">
 
@@ -69,9 +78,9 @@
             </div>
         </div>
 
-        <div data-imdbid="" class="card col l2 sticky-action main-card-1" id="results-card">
+        <div data-imdbid="" class="card col s3 m3 l2 sticky-action main-card-1" id="results-card">
             <div class="card-image waves-effect waves-block waves-light">
-                <img id="poster-img" class="activator responsive-img" src="">
+                <img id="poster-img" class="activator" src="">
             </div>
             <div id="results-content" class="card-content">
 
@@ -100,9 +109,9 @@
             </div>
         </div>
 
-        <div data-imdbid="" class="card col l2 sticky-action main-card-2" id="results-card">
+        <div data-imdbid="" class="card col s3 m3 l2 sticky-action main-card-2" id="results-card">
             <div class="card-image waves-effect waves-block waves-light">
-                <img id="poster-img" class="activator responsive-img" src="">
+                <img id="poster-img" class="activator" src="">
             </div>
             <div id="results-content" class="card-content">
 
@@ -131,9 +140,9 @@
             </div>
         </div>
 
-        <div data-imdbid="" class="card col l2 sticky-action main-card-3" id="results-card">
+        <div data-imdbid="" class="card col s3 m3 l2 sticky-action main-card-3" id="results-card">
             <div class="card-image waves-effect waves-block waves-light">
-                <img id="poster-img" class="activator responsive-img" src="">
+                <img id="poster-img" class="activator" src="">
             </div>
             <div id="results-content" class="card-content">
 
@@ -162,9 +171,9 @@
             </div>
         </div>
 
-        <div data-imdbid="" class="card col l2 sticky-action main-card-4" id="results-card">
+        <div data-imdbid="" class="card col s3 m3 l2 sticky-action main-card-4" id="results-card">
             <div class="card-image waves-effect waves-block waves-light">
-                <img id="poster-img" class="activator responsive-img" src="">
+                <img id="poster-img" class="center activator" src="">
             </div>
             <div id="results-content" class="card-content">
 
@@ -194,8 +203,8 @@
         </div>
 
     </div>
-    <div class="row">
-        <div class="col l12 center-align">
+    <div class="row hide-on-med-and-down">
+        <div class="col s12 m12 l12 center">
             <button id="back-btn" class="btn transparent black-text">Back
                 <i class="material-icons left">arrow_back</i></button>
             <button id="next-btn" class="btn transparent black-text">Next
