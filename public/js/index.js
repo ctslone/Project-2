@@ -216,14 +216,18 @@ $(document).ready(function () {
   function checkReturn (array) {
     console.log(globalID)
     if (array[0].imdbid === globalID) {
+      var endToast = true;
       console.log("imdb working")
       var currentOffset = $("#sort-btn").attr("data-offset");
       var newOffset = parseInt(currentOffset) - (+5);
       $("#sort-btn").attr("data-offset", newOffset);
-      M.toast({
-        html: "You are at the end of the movie list!",
-        classes: "amber rounded"
-      });
+      
+      // if (endToast) {
+      //   M.toast({
+      //     html: "You are at the end of the movie list!",
+      //     classes: "amber rounded"
+      //   });
+      // }
     }
   };
 });

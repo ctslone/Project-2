@@ -11,8 +11,13 @@ $(".add-movie").on("click", function(){
         url: "/api/movie/add/" + imdbID,
         method: "POST"
     }).then(function(response){
-        location.reload();
-        window.location.href = "/";
+        M.toast({
+            html: "Movie added! Redirecting to home.",
+            classes: "amber rounded"
+          });
+        setTimeout(function() {
+            window.location.href = "/";  
+        }, 2000)  
     });
 });
 
@@ -39,6 +44,7 @@ $(".down-boat").on("click", function(){
 });
 
 $(".card").on("click", function(){
+    imdbID = $(this).data("imdbid");
     $.ajax({
         url:"/api/movie/"+imdbID,
         method: "GET"
