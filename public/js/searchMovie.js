@@ -11,15 +11,17 @@ $(".add-movie").on("click", function(){
         url: "/api/movie/add/" + imdbID,
         method: "POST"
     }).then(function(response){
-        M.toast({
-            html: "Movie added! Redirecting to home.",
-            classes: "amber rounded"
-          });
-        setTimeout(function() {
-            window.location.href = "/";  
-        }, 2000)  
+        location.reload()  
     });
+    M.toast({
+        html: "Movie added!",
+        classes: "amber rounded"
+      });
 });
+
+$("#go-home").on("click", function() {
+    window.location.href = "/"
+})
 
 $(".up-boat").on("click", function(){
     imdbID = $(this).data("imdbid");
