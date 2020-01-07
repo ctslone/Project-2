@@ -34,6 +34,10 @@ $("#go-home").on("click", function() {
     window.location.href = "/"
 })
 
+$("#go-search").on("click", function() {
+    window.location.href = "/movie/search"
+})
+
 $(".up-boat").on("click", function(){
     imdbID = $(this).data("imdbid");
     console.log(imdbID);

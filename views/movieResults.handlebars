@@ -1,8 +1,18 @@
+<nav>
+    <div class="nav-wrapper">
+        <ul class="right">
+            <li><a id="go-home" class="waves-effect waves-light btn">Home<i
+                        class="material-icons small right">home</i></a></li>
+            <li><a id="go-search" class="waves-effect waves-light btn">Back to Search<i
+                        class="material-icons small left">search</i></a></li>
+        </ul>
+    </div>
+</nav>
+
 <div class="container">
     <div class="row">
         <div class="col s12">
             <h1 id="main-res-title" class="center">Movie Results
-                <a id="go-home" class="waves-effect waves-light btn">Home<i class="material-icons right">home</i></a>
             </h1>
         </div>
     </div>
@@ -23,20 +33,20 @@
 
                     <div id="boats-div" class="center-align">
                         {{#if source}}
-                        <a id="up-boat"><i class="material-icons left up-boat"
+                        <a id="up-boat"><i class="material-icons small left up-boat"
                                 data-imdbid="{{imdbID}}">keyboard_arrow_up</i></a>
                         <span>{{boatsValue}}</span>
-                        <a id="down-boat"><i class="material-icons right down-boat"
+                        <a id="down-boat"><i class="material-icons small right down-boat"
                                 data-imdbid="{{imdbID}}">keyboard_arrow_down</i></a>
                         {{else}}
-                        <a class="waves-effect waves-light btn-small add-movie" data-imdbid="{{imdbID}}"><i
-                                class="material-icons right">favorite</i>Add</a>
+                        <a class="waves-effect waves-light btn add-movie" data-imdbid="{{imdbID}}"><i
+                                class="material-icons small right">favorite</i>Add</a>
                         {{/if}}
                     </div>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{Title}}<i
-                            class="material-icons right">close</i></span>
+                            class="material-icons small right">close</i></span>
                     <ul>
                         <li>Year: {{Year}}</li>
                         <li class="rating">Rating: </li>

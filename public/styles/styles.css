@@ -4,6 +4,11 @@
   src: url(/styles/wave.ttf)
 }
 
+@font-face {
+  font-family: waveTwo;
+  src: url(/styles/second-wave.ttf)
+}
+
 body {
   background-image: url(https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
   background-attachment: fixed;
@@ -19,6 +24,11 @@ html {
 
 .container {
   width: 97%;
+}
+
+.btn {
+  font-family: waveTwo;
+  background-color: rgb(0, 204, 255);
 }
 
 /* navbar */
@@ -50,6 +60,10 @@ nav {
 }
 
 /* docks */
+#dock-title {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 #movie-dock {
   border: 2px solid black;
@@ -60,7 +74,7 @@ nav {
     rgb(112, 65, 21) 20px,
     rgb(112, 65, 21) 40px);
   border-radius: 20px;
-  font-family: wave;
+  font-family: waveTwo;
   color: white;
   font-size: 0.5em
   
@@ -85,10 +99,6 @@ nav {
   padding-top: 35px;
 }
 
-#next-btn, #back-btn {
-  
-}
-
 #up-boat:hover {
   cursor: pointer;
   color: lime;
@@ -104,17 +114,29 @@ nav {
 #search-title {
   font-family: wave;
   font-size: 5em;
+  text-shadow: 2px 2px rgb(0, 204, 255);
 }
 
 #search-movie {
   background-color: rgb(0, 204, 255);
 }
 
+#movieName {
+  background-color: rgba(167, 167, 167, 0.432);
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#movieName::placeholder {
+  color: rgb(0, 0, 0);
+}
+
 /* Results Page */
 
 #main-res-title {
   font-family: wave;
-  font-size: 3em;
+  font-size: 5em;
   text-shadow: 2px 2px rgb(0, 204, 255);
 }
 
@@ -140,7 +162,7 @@ nav {
 }
 
 #movie-title {
-  font-size: 20px;
+  font-size: 1.4em;
 }
 
 #boats-div {
