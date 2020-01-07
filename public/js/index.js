@@ -43,7 +43,7 @@ $(document).ready(function () {
         $(".main-card-" + i).find(".rating").text("Rating: " + response[i].rated);
         $(".main-card-" + i).find(".plot").text("Plot: " + response[i].plot);
       }
-    });
+    })
   }
 
   function newMovies(offset) {
@@ -172,7 +172,15 @@ $(document).ready(function () {
     var currentOffset = $("#sort-btn").attr("data-offset");
     var whichSort = $("#sort-btn").attr("data-sort");
     var newOffset = parseInt(currentOffset) + (+5);
+    console.log(newOffset);
+    $("#sort-btn").attr("data-offset", newOffset);
+    // $( ".card" ).each(function() {
+    //   $(this).toggle("slide", { direction: "right" });
+    // });
     sortBy(whichSort, newOffset);
+    // $( ".card" ).each(function() {
+    //   $(this).toggle("slide", { direction: "right" });
+    // });
   });
 
   $("#back-btn").on("click", function () {
@@ -181,7 +189,15 @@ $(document).ready(function () {
     var whichSort = $("#sort-btn").attr("data-sort");
     if (currentOffset > 4) {
       var newOffset = parseInt(currentOffset) - (+5);
+      console.log(newOffset)
+      $("#sort-btn").attr("data-offset", newOffset);
+      // $( ".card" ).each(function() {
+      //   $(this).toggle("slide", { direction: "left" });
+      // });
       sortBy(whichSort, newOffset);
+      // $( ".card" ).each(function() {
+      //   $(this).toggle("slide", { direction: "left" });
+      // });
     }
     else {
       M.toast({
@@ -196,17 +212,21 @@ $(document).ready(function () {
     switch (sortType) {
       case 'Popular':
         popularMovies(offset);
+        $("#sort-name").text("Popular")
         break;
       case 'New':
         newMovies(offset);
+        $("#sort-name").text("New")
         break;
       case 'Year':
         console.log("in year case")
         yearMovies(offset);
+        $("#sort-name").text("Year")
         break;
       case 'Title':
         console.log("in title case")
         titleMovies(offset);
+        $("#sort-name").text("Title")
         break;
     }
   };

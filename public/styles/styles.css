@@ -74,6 +74,10 @@ nav {
   margin-left: 300px;
 }
 
+#sort-name {
+  margin-left: 10px;
+}
+
 /* home cards */
 
 #movie-cards {
