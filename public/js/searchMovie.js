@@ -11,11 +11,12 @@ $(".add-movie").on("click", function(){
         url: "/api/movie/add/" + imdbID,
         method: "POST"
     }).then(function(response){
-        M.toast({
-            html: "Movie added!",
-            classes: "amber rounded"
-          });  
+        location.reload()  
     });
+    M.toast({
+        html: "Movie added!",
+        classes: "amber rounded"
+      });
 });
 
 $("#go-home").on("click", function() {
