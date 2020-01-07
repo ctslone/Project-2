@@ -1,6 +1,7 @@
 $(".dropdown-trigger").dropdown();
 
 var globalID;
+var actionBtn;
 
 $(document).ready(function () {
 
@@ -13,6 +14,7 @@ $(document).ready(function () {
   })
 
   $("#movie-sort a").on("click", function () {
+    actionBtn = "sort-by-btn"
     var offsetVal = $("#sort-btn").data("offset");
     $("#sort-btn").attr("data-sort", $(this).text());
     sortBy($(this).text(), offsetVal);
@@ -25,7 +27,7 @@ $(document).ready(function () {
       url: "/api/movie-find/popular/" + offset,
       method: "GET"
     }).then(function (response) {
-      checkReturn(response);
+      checkReturn(response, offset);
       globalID = response[0].imdbid;
       for (var i = 0; i < response.length; i++) {
         // front
@@ -49,7 +51,7 @@ $(document).ready(function () {
       url: "/api/movie-find/newest/" + offset,
       method: "GET"
     }).then(function (response) {
-      checkReturn(response);
+      checkReturn(response, offset);
       globalID = response[0].imdbid;
       for (var i = 0; i < response.length; i++) {
         // front
@@ -73,7 +75,7 @@ $(document).ready(function () {
       url: "/api/movie-find/year/" + offset,
       method: "GET"
     }).then(function (response) {
-      checkReturn(response);
+      checkReturn(response, offset);
       globalID = response[0].imdbid;
       for (var i = 0; i < response.length; i++) {
         // front
@@ -97,7 +99,7 @@ $(document).ready(function () {
       url: "/api/movie-find/title/" + offset,
       method: "GET"
     }).then(function (response) {
-      checkReturn(response);
+      checkReturn(response, offset);
       globalID = response[0].imdbid;
       for (var i = 0; i < response.length; i++) {
         // front
@@ -118,6 +120,7 @@ $(document).ready(function () {
 
 
   $(".up-boat").on("click", function () {
+    actionBtn = "up-boat-btn"
     imdbid = $(this).data("imdbid");
     console.log(imdbid);
     $.ajax({
@@ -126,8 +129,6 @@ $(document).ready(function () {
     }).then(function (response) {
       var currentOffset = $("#sort-btn").attr("data-offset");
       var whichSort = $("#sort-btn").attr("data-sort");
-      var newOffset = parseInt(currentOffset) + (+5);
-      $("#sort-btn").attr("data-offset", newOffset);
       sortBy(whichSort, currentOffset);
       M.toast({
         html: "Thank you for the review!",
@@ -137,6 +138,7 @@ $(document).ready(function () {
   });
 
   $(".down-boat").on("click", function () {
+    actionBtn = "down-boat-btn"
     imdbid = $(this).data("imdbid");
     console.log(imdbid);
     $.ajax({
@@ -145,8 +147,6 @@ $(document).ready(function () {
     }).then(function (response) {
       var currentOffset = $("#sort-btn").attr("data-offset");
       var whichSort = $("#sort-btn").attr("data-sort");
-      var newOffset = parseInt(currentOffset) + (+5);
-      $("#sort-btn").attr("data-offset", newOffset);
       sortBy(whichSort, currentOffset);
       M.toast({
         html: "Thank you for the review!",
@@ -168,21 +168,19 @@ $(document).ready(function () {
   });
 
   $("#next-btn").on("click", function () {
+    actionBtn = "next-btn";
     var currentOffset = $("#sort-btn").attr("data-offset");
     var whichSort = $("#sort-btn").attr("data-sort");
     var newOffset = parseInt(currentOffset) + (+5);
-    console.log(newOffset);
-    $("#sort-btn").attr("data-offset", newOffset);
     sortBy(whichSort, newOffset);
   });
 
   $("#back-btn").on("click", function () {
+    actionBtn = "back-btn";
     var currentOffset = $("#sort-btn").attr("data-offset");
     var whichSort = $("#sort-btn").attr("data-sort");
     if (currentOffset > 4) {
       var newOffset = parseInt(currentOffset) - (+5);
-      console.log(newOffset)
-      $("#sort-btn").attr("data-offset", newOffset);
       sortBy(whichSort, newOffset);
     }
     else {
@@ -213,21 +211,26 @@ $(document).ready(function () {
     }
   };
 
-  function checkReturn (array) {
-    console.log(globalID)
-    if (array[0].imdbid === globalID) {
-      var endToast = true;
-      console.log("imdb working")
-      var currentOffset = $("#sort-btn").attr("data-offset");
-      var newOffset = parseInt(currentOffset) - (+5);
-      $("#sort-btn").attr("data-offset", newOffset);
-      
-      // if (endToast) {
-      //   M.toast({
-      //     html: "You are at the end of the movie list!",
-      //     classes: "amber rounded"
-      //   });
-      // }
-    }
+  function checkReturn (array, offset) {
+    console.log(globalID);
+    console.log(actionBtn);
+
+    if (actionBtn == "next-btn" || actionBtn == "back-btn"){
+      if (array[0].imdbid === globalID) {
+        console.log("list ended")
+        M.toast({
+              html: "You are at the end of the movie list!",
+              classes: "amber rounded"
+            });
+      }
+      else{
+        if (actionBtn == "next-btn"){
+          $("#sort-btn").attr("data-offset", offset);
+        }
+        else if (actionBtn == "back-btn"){
+          $("#sort-btn").attr("data-offset", offset);
+        };
+      };
+    };
   };
 });
