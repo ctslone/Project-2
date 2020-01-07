@@ -157,6 +157,7 @@ nav {
 }
 
 #movie-title-div {
+  font-family: waveTwo;
   height: 75px;
   overflow: scroll;
 }
