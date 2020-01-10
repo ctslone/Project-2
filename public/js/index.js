@@ -14,6 +14,7 @@ $(document).ready(function () {
   })
 
   $("#movie-sort a").on("click", function () {
+    $("#sort-btn").attr("data-offset", "0");
     actionBtn = "sort-by-btn"
     var offsetVal = $("#sort-btn").data("offset");
     $("#sort-btn").attr("data-sort", $(this).text());
@@ -207,23 +208,19 @@ $(document).ready(function () {
   function sortBy(sortType, offset) {
     switch (sortType) {
       case 'Popular':
-        $("#sort-btn").attr("data-offset", "0");
         popularMovies(offset);
         $("#sort-name").text("Popular")
         break;
       case 'New':
-        $("#sort-btn").attr("data-offset", "0");
         newMovies(offset);
         $("#sort-name").text("New")
         break;
       case 'Year':
-        $("#sort-btn").attr("data-offset", "0");
         // console.log("in year case")
         yearMovies(offset);
         $("#sort-name").text("Year")
         break;
       case 'Title':
-        $("#sort-btn").attr("data-offset", "0");
         // console.log("in title case")
         titleMovies(offset);
         $("#sort-name").text("Title")
