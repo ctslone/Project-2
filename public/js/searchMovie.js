@@ -1,4 +1,15 @@
 
+$(function() {
+    $("form input").keypress(function (e) {
+        if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+            $('#search-movie').click();
+            return false;
+        } else {
+            return true;
+        }
+    });
+});
+
 $("#search-movie").on("click", function(){
     movieName = $("#movieName").val().trim().replace(" ","+"); 
     location.href = "/movie/search/" + movieName;
@@ -21,6 +32,10 @@ $(".add-movie").on("click", function(){
 
 $("#go-home").on("click", function() {
     window.location.href = "/"
+})
+
+$("#go-search").on("click", function() {
+    window.location.href = "/movie/search"
 })
 
 $(".up-boat").on("click", function(){

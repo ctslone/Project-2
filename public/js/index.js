@@ -14,6 +14,7 @@ $(document).ready(function () {
   })
 
   $("#movie-sort a").on("click", function () {
+    $("#sort-btn").attr("data-offset", "0");
     actionBtn = "sort-by-btn"
     var offsetVal = $("#sort-btn").data("offset");
     $("#sort-btn").attr("data-sort", $(this).text());
@@ -140,7 +141,7 @@ $(document).ready(function () {
   $(".down-boat").on("click", function () {
     actionBtn = "down-boat-btn"
     imdbid = $(this).data("imdbid");
-    console.log(imdbid);
+    // console.log(imdbid);
     $.ajax({
       url: "/api/movie/down-boat/" + imdbid,
       method: "PUT"
@@ -157,7 +158,7 @@ $(document).ready(function () {
 
   $(".card").on("click", function () {
     imdbid = $(this).data("imdbid");
-    console.log(imdbid)
+    // console.log(imdbid)
     $.ajax({
       url: "/api/movie/" + imdbid,
       method: "GET"
@@ -215,12 +216,12 @@ $(document).ready(function () {
         $("#sort-name").text("New")
         break;
       case 'Year':
-        console.log("in year case")
+        // console.log("in year case")
         yearMovies(offset);
         $("#sort-name").text("Year")
         break;
       case 'Title':
-        console.log("in title case")
+        // console.log("in title case")
         titleMovies(offset);
         $("#sort-name").text("Title")
         break;
@@ -228,8 +229,8 @@ $(document).ready(function () {
   };
 
   function checkReturn (array, offset) {
-    console.log(globalID);
-    console.log(actionBtn);
+    console.log("Global ID: " + globalID);
+    console.log("Button ID: " + actionBtn);
 
     if (actionBtn == "next-btn" || actionBtn == "back-btn"){
       if (array[0].imdbid === globalID) {
