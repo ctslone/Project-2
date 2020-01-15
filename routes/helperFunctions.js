@@ -1,10 +1,6 @@
 require("dotenv").config();
 var db = require("../models");
-var axios = require("axios")
-// var moment = require("moment")
-// var keys = require("./keys");
-// var Spotify = require('node-spotify-api');
-// var spotify = new Spotify(keys.spotify);
+var axios = require("axios");
 
 var command = process.argv[2];
 var searchText = process.argv.splice(3).join("+");
